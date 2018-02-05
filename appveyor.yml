@@ -1,13 +1,24 @@
+version: '{build}'
 image: Visual Studio 2017
 nuget:
   project_feed: true
   disable_publish_on_pr: true
 build_script:
-- ps: .\build.ps1 -BuildNumber "$env:APPVEYOR_BUILD_NUMBER" -Version "$env:APPVEYOR_REPO_TAG_NAME" -CreatePackages $true -IsCI $true
+- ps: .\build.ps1 -BuildNumber "$env:APPVEYOR_BUILD_NUMBER" -Version "$env:APPVEYOR_REPO_TAG_NAME" -CreatePackages $true
 test: off
+artifacts:
+- path: .\artifacts\*.nupkg
+  name: NuGet Packages
 deploy:
 - provider: NuGet
   api_key:
     secure: cAB/DgarKTMghFXMglQssN6kzFiofX1iwr2zuZv2I2xHUav27xiaRpmw7YyEDKNN
   on:
     appveyor_repo_tag: true
+- provider: NuGet
+  server: https://www.myget.org/F/postcard-ci/api/v2/package
+  api_key:
+    secure: +JsIFx9NL6+rrH6cAQqYL/6QnA5QlICVMFHNG5zIy96Kt3SWST115YbgQjKdpqJS
+  skip_symbols: true
+  on:
+    branch: master
