@@ -3,7 +3,8 @@ param(
     [string] $Version,
     [string] $BuildNumber,
     [bool] $CreatePackages = $true,
-    [bool] $RunTests = $true
+    [bool] $RunTests = $true,
+    [bool] $IsCI = $false
 )
 
 Write-Host "Starting build process for Postcard"
@@ -42,6 +43,11 @@ if ($BuildNumber -and $BuildNumber.Length -lt 5) {
 }
 
 $productVersion = $(GetVersion)
+
+if($IsCI)
+{
+    Update-AppveyorBuild -Version "$productVersion"
+}
 Write-Host "Version: $productVersion"
 Write-Host "BuildNumber: $BuildNumber"
 Write-Host "CreatePackages: $CreatePackages"
