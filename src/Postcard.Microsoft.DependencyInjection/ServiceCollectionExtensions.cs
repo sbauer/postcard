@@ -16,21 +16,30 @@ namespace Postcard
             
             serviceCollection.Configure(configureOptions);
            
-            serviceCollection.AddTransient(p =>
-            {
-                var configuration = p.GetService<IOptions<PostcardOptions>>();
-
-                return configuration.Value.EmailSender;
-            });
+            serviceCollection.AddTransient(GetEmailSender);
             
-            serviceCollection.AddTransient(p =>
-            {
-                var configuration = p.GetService<IOptions<PostcardOptions>>();
-
-                return configuration.Value.ViewRenderer;
-            });
+            serviceCollection.AddTransient(GetViewRenderer);
             
             serviceCollection.AddSingleton<IMailer, PostcardMailer>();
+        }
+
+        private static IEmailSender GetEmailSender(IServiceProvider provider)
+        {
+            var configuration = GetOptions(provider);
+
+            return configuration.Value.EmailSender;
+        }
+        
+        private static IEmailViewRenderer GetViewRenderer(IServiceProvider provider)
+        {
+            var configuration = GetOptions(provider);
+
+            return configuration.Value.ViewRenderer;
+        }
+
+        private static IOptions<PostcardOptions> GetOptions(IServiceProvider serviceProvider)
+        {
+            return serviceProvider.GetService<IOptions<PostcardOptions>>();
         }
     }
 }
