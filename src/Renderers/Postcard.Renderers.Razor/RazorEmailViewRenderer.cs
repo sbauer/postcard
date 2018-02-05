@@ -12,8 +12,7 @@ namespace Postcard.Renderers.Razor
         public RazorEmailViewRenderer(string pathToViews)
         {
             if (String.IsNullOrEmpty(pathToViews))
-                pathToViews = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                    $"Views{Path.DirectorySeparatorChar}Email");
+                throw new ArgumentException($"{nameof(pathToViews)} should not be null or empty.");
             
             _razorLightEngine = new RazorLightEngineBuilder().UseFilesystemProject(pathToViews).UseMemoryCachingProvider().Build();
         }

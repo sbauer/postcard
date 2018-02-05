@@ -37,7 +37,7 @@ namespace Postcard.Tests.Renderers.Razor
 
         private RazorEmailViewRenderer CreateRenderer()
         {
-            return new RazorEmailViewRenderer(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Views/Emails"));
+            return new RazorEmailViewRenderer(Path.Combine(Directory.GetCurrentDirectory(), "Views/Emails"));
         }
     }
 

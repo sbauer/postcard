@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Xunit;
 
-namespace Postcard.UnitTests
+namespace Postcard.Tests
 {
     public class EmailTests
     {
