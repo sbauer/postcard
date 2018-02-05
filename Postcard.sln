@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postcard.Senders.Smtp", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postcard.Renderers.Razor", "src\Renderers\Postcard.Renderers.Razor\Postcard.Renderers.Razor.csproj", "{12A007D8-5D17-4618-9A7B-F3EB8E3C32A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postcard.UnitTests", "tests\Postcard.UnitTests\Postcard.UnitTests.csproj", "{F4B1BF68-6309-4607-8D86-59EA40D5C83F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postcard.Tests", "tests\Postcard.Tests\Postcard.Tests.csproj", "{F4B1BF68-6309-4607-8D86-59EA40D5C83F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postcard.Tests.Renderers.Razor", "tests\Postcard.Tests.Renderers.Razor\Postcard.Tests.Renderers.Razor.csproj", "{A1B648CF-2A81-4281-9D12-59CE633A8BB4}"
 EndProject
