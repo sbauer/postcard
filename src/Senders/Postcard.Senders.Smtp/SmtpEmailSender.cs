@@ -52,6 +52,12 @@ namespace Postcard.Senders.Smtp
                 message.To.Add(new System.Net.Mail.MailAddress(to.Email, to.Name));
             }
             
+            foreach(var cc in email.Cc)
+                message.CC.Add(new System.Net.Mail.MailAddress(cc.Email, cc.Name));
+
+            foreach (var bcc in email.Bcc)
+                message.Bcc.Add(new System.Net.Mail.MailAddress(bcc.Email, bcc.Name));
+            
             foreach(var attachment in email.Attachments)
                 message.Attachments.Add(new System.Net.Mail.Attachment(attachment.Data, attachment.FileName));
 

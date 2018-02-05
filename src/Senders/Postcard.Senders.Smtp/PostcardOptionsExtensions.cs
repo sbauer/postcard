@@ -9,5 +9,10 @@ namespace Postcard.Senders.Smtp
             var builder = new SmtpSenderBuilder(options);
             return builder.UsingHostAndPort(host);
         }
+
+        public static void UseSmtpSender(this PostcardOptions options, SmtpConfiguration configuration)
+        {
+            options.EmailSender = new SmtpEmailSender(configuration);
+        }
     }
 }
