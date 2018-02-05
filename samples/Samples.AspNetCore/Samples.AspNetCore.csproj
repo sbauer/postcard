@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Postcard.Microsoft.DependencyInjection\Postcard.Microsoft.DependencyInjection.csproj">
+      <Project>{B98824D0-0359-4181-8922-772D48B0538E}</Project>
+      <Name>Postcard.Microsoft.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Renderers\Postcard.Renderers.Razor\Postcard.Renderers.Razor.csproj">
+      <Project>{12A007D8-5D17-4618-9A7B-F3EB8E3C32A1}</Project>
+      <Name>Postcard.Renderers.Razor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Senders\Postcard.Senders.Smtp\Postcard.Senders.Smtp.csproj">
+      <Project>{D7CA14BF-47DC-45B1-868C-A1926D3F1641}</Project>
+      <Name>Postcard.Senders.Smtp</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
